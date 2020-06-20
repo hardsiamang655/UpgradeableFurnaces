@@ -1,0 +1,32 @@
+#Standard ui icons made by Smashicons from www.flaticon.com
+# - - - System messages - - -
+
+prefix: "&8» &9Furnaces &8| &7"
+no-permission: "&cYou have insufficient permissions to execute this command."
+
+furnace-item: "&9Level&8(&b[0]&8)"
+furnace-max-level: "&cThis furnace reached the maximum of all available upgrades."
+furnace-placed: "&aYou successfully placed a &blevel [0] &afurnace."
+furnace-removed: "&aThe &blevel [0] &afurnace has been dropped."
+furnace-removed-gamemode: "&aThe &blevel [0] &afurnace is now in your inventory."
+furnace-upgraded: "&aThe furnace has been upgraded to &blevel [0]&a."
+furnace-received: "&aYou received a &blevel [0] &afurnace."
+furnace-usage: "Usage: &b/[0] give <Player> <Level>"
+invalid-level: "&cPlease provide a valid furnace level."
+player-not-online: "&b[0] &cis not online."
+need-more-money: "&cYou need more money to execute this upgrade."
+need-more-xp: "&cYou need more experience level to execute this upgrade."
+cooldown: "&cPlease wait a moment."
+remove-sneak: "&7You have to sneak, to destroy a furnace."
+
+# - - - UI messages - - -
+
+furnace-menu-title: "Furnace management"
+furnace-menu-content: "&7This furnace is &blevel [0]&7.\nThe cooking or smelting speed is increased by &9[1] percent&7 and this furnance has a &9[2] percent &7chance to get double result."
+furnace-upgrade-button: "&8» &9Upgrade"
+furnace-upgrade-image: "https://image.flaticon.com/icons/png/512/1504/1504048.png"
+
+upgrade-menu-title: "Upgrade furnace"
+upgrade-menu-content: "&7Do you want to upgrade your furnace to &9level [0]&7 for &b[1] [2]&7?"
+upgrade-menu-upgrade: "&8» &aUpgrade"
+upgrade-menu-back: "&8» &cBack"

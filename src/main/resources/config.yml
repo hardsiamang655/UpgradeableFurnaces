@@ -1,0 +1,35 @@
+#You do not have to edit the first level, but do not remove it.
+Upgrades:
+  '1':
+    SmeltingSpeedPercent: 0
+    DoubleResultPercent: 0
+    CostType: MONEY
+    CostString: ""
+    Cost: 0
+  '2':
+    SmeltingSpeedPercent: 20
+    DoubleResultPercent: 15
+    CostType: MONEY
+    CostString: "$"
+    Cost: 5000
+  '3':
+    SmeltingSpeedPercent: 40
+    DoubleResultPercent: 30
+    CostType: EXPERIENCE
+    CostString: "Experience level"
+    Cost: 75
+  '4':
+    SmeltingSpeedPercent: 60
+    DoubleResultPercent: 45
+    CostType: MONEY
+    CostString: "$"
+    Cost: 10000
+  '5':
+    SmeltingSpeedPercent: 80
+    DoubleResultPercent: 60
+    CostType: EXPERIENCE
+    CostString: "Experience level"
+    Cost: 130
+
+Commands:
+  Furnace: "furnace"
