@@ -10,9 +10,9 @@ import cn.nukkit.nbt.tag.CompoundTag;
 import net.lldv.upgradeablefurnaces.components.api.FurnaceAPI;
 import net.lldv.upgradeablefurnaces.components.tools.Language;
 
-public class FurnanceCommand extends Command {
+public class FurnaceCommand extends Command {
 
-    public FurnanceCommand(String name) {
+    public FurnaceCommand(String name) {
         super(name);
     }
 

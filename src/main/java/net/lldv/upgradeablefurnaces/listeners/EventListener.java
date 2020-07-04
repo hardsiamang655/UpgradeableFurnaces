@@ -40,6 +40,7 @@ public class EventListener implements Listener {
                 entityFurnace.setCookTime(add);
                 double d = Math.random() * 100;
                 boolean b = d <= upgrade.getDoublePercent();
+                if (event.getResult().count == 64) b = false;
                 if (b) event.getResult().setCount(event.getResult().count + 1);
             }
         }
@@ -67,7 +68,7 @@ public class EventListener implements Listener {
         }
     }
 
-    @EventHandler
+    @EventHandler(ignoreCancelled = true, priority = EventPriority.HIGHEST)
     public void on(BlockPlaceEvent event) {
         Player player = event.getPlayer();
         Item item = event.getItem();
