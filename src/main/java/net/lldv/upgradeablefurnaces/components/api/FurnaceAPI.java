@@ -7,7 +7,7 @@ import cn.nukkit.level.Location;
 import cn.nukkit.level.Sound;
 import cn.nukkit.network.protocol.PlaySoundPacket;
 import cn.nukkit.utils.Config;
-import me.onebone.economyapi.EconomyAPI;
+import net.lldv.llamaeconomy.LlamaEconomy;
 import net.lldv.upgradeablefurnaces.UpgradeableFurnaces;
 import net.lldv.upgradeablefurnaces.components.data.Furnace;
 import net.lldv.upgradeablefurnaces.components.data.Upgrade;
@@ -18,6 +18,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Random;
+import java.util.concurrent.CompletableFuture;
 
 public class FurnaceAPI {
 
@@ -67,16 +68,18 @@ public class FurnaceAPI {
 
     public static void upgradeFurnace(Player player, Furnace furnace, Upgrade upgrade) {
         if (upgrade.getType() == UpgradeType.MONEY) {
-            if (EconomyAPI.getInstance().myMoney(player.getName()) >= upgrade.getCost()) {
-                EconomyAPI.getInstance().reduceMoney(player.getName(), upgrade.getCost());
-                furnace.setUpgrade(furnace.getUpgrade() + 1);
-                setUpgrade(furnace);
-                player.sendMessage(Language.getAndReplace("furnace-upgraded", furnace.getUpgrade()));
-                playSound(player, Sound.RANDOM_LEVELUP);
-            } else {
-                player.sendMessage(Language.getAndReplace("need-more-money"));
-                playSound(player, Sound.NOTE_BASS);
-            }
+            CompletableFuture.runAsync(() -> {
+                if (LlamaEconomy.getAPI().getMoney(player.getName()) >= upgrade.getCost()) {
+                    LlamaEconomy.getAPI().reduceMoney(player.getName(), upgrade.getCost());
+                    furnace.setUpgrade(furnace.getUpgrade() + 1);
+                    setUpgrade(furnace);
+                    player.sendMessage(Language.getAndReplace("furnace-upgraded", furnace.getUpgrade()));
+                    playSound(player, Sound.RANDOM_LEVELUP);
+                } else {
+                    player.sendMessage(Language.getAndReplace("need-more-money"));
+                    playSound(player, Sound.NOTE_BASS);
+                }
+            });
         } else if (upgrade.getType() == UpgradeType.EXPERIENCE) {
             if (player.getExperienceLevel() >= upgrade.getCost()) {
                 player.setExperience(0, player.getExperienceLevel() - upgrade.getCost());
